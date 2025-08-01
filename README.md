@@ -22,11 +22,8 @@ This script will perform below actions:
 4. Deploy Blue & Green deployments
 5. Point service to Blue initially
 
-### 2. Access Jenkins
 
-kubectl port-forward svc/jenkins 8080:8080
-
-### 3. CI-CD
+### 2. CI-CD
 
 Jenkins job to automatically update deployment and switchover. Below is the flow:
 
