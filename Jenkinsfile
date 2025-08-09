@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USER = "<your-dockerhub-username>"  // Change this
+        DOCKER_USER = "arjun16"  // Change this
         AWS_REGION = "us-east-1"
         SERVICE_NAME = "demo-service"
     }
@@ -49,7 +49,7 @@ pipeline {
         stage('Switch Traffic to Idle Version') {
             steps {
                 script {
-                    sh "python scripts/setup_all.py --switch ${IDLE_VERSION}"
+                    sh "python3 scripts/setup_all.py --switch ${IDLE_VERSION}"
                     echo "Traffic switched to ${IDLE_VERSION} version"
                 }
             }
