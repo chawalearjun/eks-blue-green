@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-DOCKER_USER = "<your-dockerhub-username>"
+DOCKER_USER = "arjun16"
 AWS_REGION = "us-east-1"
 CLUSTER_NAME = "blue-green-eks"
 
@@ -15,6 +15,10 @@ def create_eks():
     run_cmd(f"aws eks update-kubeconfig --region {AWS_REGION} --name {CLUSTER_NAME}")
 
 def deploy_jenkins():
+    run_cmd("kubectl apply -f jenkins/jenkins-service-account.yaml")
+    run_cmd("kubectl apply -f jenkins/jenkins-cluster-role.yaml")
+    run_cmd("kubectl apply -f jenkins/jenkins-cluster-role-binding.yaml")
+    run_cmd("kubectl apply -f jenkins/jenkins-pvc.yaml")
     run_cmd("kubectl apply -f jenkins/jenkins-deployment.yaml")
     run_cmd("kubectl apply -f jenkins/jenkins-service.yaml")
 
