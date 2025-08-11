@@ -1,4 +1,16 @@
-variable "aws_region" { default = "us-east-1" }
-variable "cluster_name" { default = "blue-green-eks" }
-variable "node_count" { default = 2 }
-variable "node_type" { default = "t3.medium" }
+variable "aws_region" {
+  type    = string
+  default = "us-east-1" # change if needed
+}
+
+variable "cluster_name" {
+  type    = string
+  default = "blue-green-eks"
+}
+
+variable "node_type" {
+  type    = string
+  default = "t3.small"
+}
+
+variable "node_count" { default = 1 }
