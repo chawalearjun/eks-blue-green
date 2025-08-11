@@ -49,7 +49,7 @@ pipeline {
         stage('Switch Traffic to Idle Version') {
             steps {
                 script {
-                    sh "python3 scripts/setup_all.py --switch ${IDLE_VERSION}"
+                    sh "python scripts/setup_all.py --switch ${IDLE_VERSION}"
                     echo "Traffic switched to ${IDLE_VERSION} version"
                 }
             }
